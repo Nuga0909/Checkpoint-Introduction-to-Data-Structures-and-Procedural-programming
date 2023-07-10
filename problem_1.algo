@@ -11,6 +11,7 @@ BEGIN
         FOR j FROM 0 TO arr2.length-1 STEP 1  DO
             IF (arr1[i]<>arr2[j]) THEN
                 dist_arr.push(arr2[j])
+                sum = sum + arr2[j]
             END_IF
         END_FOR
     END_FOR
@@ -18,11 +19,9 @@ BEGIN
         FOR j FROM 0 TO arr1.length-1 STEP 1  DO
             IF (arr2[i]<>arr1[j]) THEN
                 dist_arr.push(arr1[j])
+                sum = sum + arr1[j]
             END_IF
         END_FOR
-    END_FOR
-    FOR i FROM 0 TO dist_arr.length-1 STEP 1  DO
-        sum = sum + dist_arr[i]
     END_FOR
     write (sum, dist_arr)
 END
