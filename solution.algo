@@ -1,0 +1,43 @@
+ALGORITHM sum_of_distinct_elements
+VAR
+    arr1 : ARRAY_OF INTEGER[50];
+    arr2 : ARRAY_OF INTEGER[50];
+    dist_arr : ARRAY_OF INTEGER[50];
+    sum : INTEGER := 0;
+    i,j : INTEGER;
+
+BEGIN
+    FOR i FROM 0 TO arr1.length-1 STEP 1  DO
+        FOR j FROM 0 TO arr2.length-1 STEP 1  DO
+            IF (arr1[i]<>arr2[j]) THEN
+                dist_arr.push(arr2[j])
+            END_IF
+        END_FOR
+    END_FOR
+    FOR i FROM 0 TO arr2.length-1 STEP 1  DO
+        FOR j FROM 0 TO arr1.length-1 STEP 1  DO
+            IF (arr2[i]<>arr1[j]) THEN
+                dist_arr.push(arr1[j])
+            END_IF
+        END_FOR
+    END_FOR
+    FOR i FROM 0 TO dist_arr.length-1 STEP 1  DO
+        sum = sum + dist_arr[i]
+    END_FOR
+    write (sum, dist_arr)
+END
+
+
+
+
+// ALGORITHM sumNum(num)
+// VAR
+//     sum : INTEGER :=0;
+// BEGIN
+//     IF (num=1) THEN
+//         sum = sum+num;
+//     ELSE
+//         sum = num + sumNum(num-1)
+//     END_IF
+//     write sum
+// END
